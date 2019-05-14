@@ -9,7 +9,7 @@
     mode: 0644
   notify: restart helloworld
 
-- name: Copying the upstart file
+- name: Copying the service file
   copy:
     src: helloworld.service
     dest: /etc/systemd/system/helloworld.service
