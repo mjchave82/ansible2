@@ -1,0 +1,6 @@
+---
+# handlers file for helloworld
+- name: Starting the HelloWorld node service
+  systemd:
+    name: helloworld
+    state: restarted
