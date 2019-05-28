@@ -44,7 +44,6 @@ def on_ec2():
 
 # Determine what kind of instance
 def os_type():
-	print "os_type started"
     os = 'na'
     release = ''
 
@@ -59,10 +58,8 @@ def os_type():
         return 'deb'
     else:
         return os
-    print "os_type finished"
 
 def get_package(module, pkg_type):
-    print "get_package started for " + module + " " + pkg_type
     dest = '/tmp/codedeploy_package.' + pkg_type
 
     pkg_url = 'https://s3.amazonaws.com/aws-codedeploy-us-east-1/latest/codedeploy-agent'
@@ -88,10 +85,8 @@ def get_package(module, pkg_type):
         module.fail_json(msg="failed to write agent package to disk: %s" % str(e))
 
     return dest
-    print "get_package started"
 
 def install_pacakge(source, pkg_type):
-    print "install_package started for " + module + " " + pkg_type
     cmd = ''
     if pkg_type == 'deb': 
         cmd = 'dpkg -i ' + source + '; apt-get -q -y -f install'
@@ -101,7 +96,6 @@ def install_pacakge(source, pkg_type):
         raise ValueError('unknown package type')
 
     os.system(cmd) # TODO catch return
-    print "install_package finished"
 
 def main():
     module = AnsibleModule(
