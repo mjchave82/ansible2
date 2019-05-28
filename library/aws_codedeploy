@@ -101,7 +101,7 @@ def install_pacakge(source, pkg_type):
         raise ValueError('unknown package type')
 
     os.system(cmd) # TODO catch return
-    print "install_package finished
+    print "install_package finished"
 
 def main():
     module = AnsibleModule(
