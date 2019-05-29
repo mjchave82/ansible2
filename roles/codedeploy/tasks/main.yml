@@ -11,6 +11,16 @@
     name: boto
     state: present    
     
-- name: Installs and starts AWS CodeDeploy Agent
-  aws_codedeploy:
-    enabled: yes
+- name: install ruby
+  yum:
+    name: ruby
+    state: present
+    
+- name: get latest version of codedeply-agent
+  shell: wget -O /home/ec2-user/install https://aws-codedeploy-eu-west-2.s3.eu-west-2.amazonaws.com/latest/install
+  
+- name: make install executable
+  shell: chmod +x /home/ec2-user/install
+  
+- name: install codedeply-agent
+  shell: /home/ec2-user/install auto
