@@ -52,7 +52,7 @@ def os_type():
     except:
         release = str(Popen(['cat', '/etc/system-release'], stdout=PIPE).communicate())
 
-    if 'AmazonAMI' in release or 'Amazon Linux AMI' in release:
+    if 'AmazonAMI' in release or 'Amazon Linux' in release:
         return 'amzn'
     elif 'Debian' in release or 'Ubuntu' in release:
         return 'deb'
