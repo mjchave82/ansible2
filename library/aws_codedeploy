@@ -115,7 +115,7 @@ def main():
         elif os == 'amzn':
             pkg_type = 'rpm'
         else:
-            module.fail_json(msg="must install the AWS CodeDeploy on a supported OS type")
+            module.fail_json(msg="must install the AWS CodeDeploy on a supported OS type. " + os + " is not valid")
 
         pkg = get_package(module, pkg_type)
         install_pacakge(pkg, pkg_type)
