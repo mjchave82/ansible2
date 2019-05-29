@@ -3,6 +3,7 @@
 - name: install pip to install boto
   yum:
     name: python-pip
+    lock_timeout: 300
     state: present
 
 - name: install boto
